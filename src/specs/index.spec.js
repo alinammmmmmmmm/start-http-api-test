@@ -1,13 +1,15 @@
 import config from '../../framework/config/config';
-import user from '../../framework/services/user';
+import user,{userID,token,isBN} from '../../framework/services/user';
+
 
 describe('GET /account/v1/user/{UUID}', () => {
-  test('Получение информации о пользователе', async () => {
-    const userId = await user.getUserId();
-    const token = await user.getToken();
+  test.only('Получение информации о пользователе', async () => {
+    const userId = await user.userIdCache();
+    const token = await user.tokenCache();
     const res = await user.info(token, userId);
 
     console.log(userId, token);
+    console.log(res.body.message);
     expect(res.status).toEqual(200);
     expect(typeof res.body).toBe('object');
     expect(typeof res.body.books).toEqual('object');
