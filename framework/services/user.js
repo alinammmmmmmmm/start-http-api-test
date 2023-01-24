@@ -76,5 +76,11 @@ export const book = {
     .set('Authorization', `Bearer ${token}`)
     .send(payload);
   },
+  //функция удаления книги
+  delete_book: (payload) => {
+    return supertest(url).delete(`/bookstore/v1/book/`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(payload);
+  },
 };
 export default user;

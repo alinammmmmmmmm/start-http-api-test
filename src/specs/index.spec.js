@@ -48,9 +48,11 @@ describe('DELETE /account/v1/user/{UUID}', () => {
 describe('POST /bookstore/v1/books', () => {
   test.only('Создание книги', async () => {
     const res = await book.create_book(
-      {userId: userID,
-      collectionOfIsbns: [{isbn: config.isbn}]});
-      
+      //создание книги с userID из кеша
+      //2b146eae-300f-4218-aeb9-1e14183458c0
+      //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InNhbWFudGEuZnJldGxscztnIiwicGFzc3dvcmQiOiJBZG1pbmlzdHJhdG9yNjY2NiUhIiwiaWF0IjoxNjc0NTg3MzUzfQ.nPpB6EHQ3UmS0Nd0HbSR3ux0o9GnccFdrB6GYRWzivw
+      {userId: userID,collectionOfIsbns: [{isbn: config.isbn}]});
+
 console.log(userID);
 console.log(res.body);
 console.log(res.message);
@@ -69,5 +71,23 @@ console.log(userID);
 console.log(res.body);
 console.log(res.message);
 expect(res.status).toEqual(200);
+  });
+});
+
+describe('DELETE /bookstore/v1/book', () => {
+  test.only('Удаление книги', async () => {
+    const res = await book.delete_book(
+      //удаление книги с userID из кеша
+      //2b146eae-300f-4218-aeb9-1e14183458c0
+      //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InNhbWFudGEuZnJldGxscztnIiwicGFzc3dvcmQiOiJBZG1pbmlzdHJhdG9yNjY2NiUhIiwiaWF0IjoxNjc0NTg3MzUzfQ.nPpB6EHQ3UmS0Nd0HbSR3ux0o9GnccFdrB6GYRWzivw
+      {
+        isbn:config.isbn,
+        userId: userID
+      });
+
+// console.log(userID);
+console.log(res.body);
+console.log(res.message);
+expect(res.status).toEqual(204);
   });
 });
