@@ -63,4 +63,18 @@ const user = {
       .send();
   },
 };
+export const book = {
+  //функция создания книги
+  create_book: (payload) => {
+    return supertest(url).post(`/bookstore/v1/books`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(payload);
+  },
+  //функция обновления книги
+  update_book: (payload) => {
+    return supertest(url).put(`/bookstore/v1/books/${config.isbn}`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(payload);
+  },
+};
 export default user;
