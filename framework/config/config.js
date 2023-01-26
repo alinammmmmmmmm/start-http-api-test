@@ -1,10 +1,11 @@
 const config = {
   url: 'https://bookstore.demoqa.com',
   credentials: {
-    userName: 'samanta.fretlls;gs',
+    userName: 'samanta.su',
     password: 'Administrator6666%!',
   },
-  isbn: "9781491904244",
+  userID: 'dd179500-5ee6-418f-b45d-25810b16f209',
+  isbn: '9781491904244',
 };
 
 export default config;
