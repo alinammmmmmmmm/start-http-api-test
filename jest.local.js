@@ -5,8 +5,10 @@ module.exports = {
     '^.+\\.jsx?$': 'babel-jest',
   },
   testMatch: ['**/specs/**/index.spec.js'],
+  reporters:['default','jest-allure'],
   testRunner: 'jest-jasmine2',
-  setupFilesAfterEnv: ['jest-allure/dist/setup'],
+  // setupFilesAfterEnv: ['jest-allure/dist/setup'],
+  setupFilesAfterEnv: ['./node_modules/jest-allure/dist/setup'],
   globals: {
     testTimeout: 50000,
   },

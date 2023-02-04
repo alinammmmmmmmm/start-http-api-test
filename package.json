@@ -21,6 +21,9 @@
   },
   "description": "",
   "dependencies": {
+    "allure-commandline": "^2.20.1",
+    "jasmine-allure-reporter": "^1.0.2",
+    "jest-each": "^29.4.1",
     "jest-json-schema": "^6.1.0",
     "joi-to-json-schema": "^5.1.0"
   }
