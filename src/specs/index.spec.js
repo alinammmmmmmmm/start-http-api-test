@@ -31,6 +31,15 @@ describe('GET /bookstore/v1/book', () => {
       pages: expect.any(Number),
     });
   });
+
+  it.each([config.isbn, config.new_isbn])(
+    `параметризированный тест c массивом данных`,
+    async () => {
+      const res = await book.info_book();
+      expect(typeof res.body).toBe('object');
+      expect(res.status).toEqual(200);
+    }
+  );
 });
 
 describe('PUT /bookstore/v1/books/{ISBN}', () => {
